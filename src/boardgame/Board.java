@@ -44,7 +44,7 @@ public class Board {
 
 
 
-    public void placePeace(Piece piece, Position position) {
+    public void placePiece(Piece piece, Position position) {
         if (thereIsAPiece(position)) {
             throw new BoardException("There is alreadya piece on position " + position);
         }
