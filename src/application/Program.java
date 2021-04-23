@@ -1,5 +1,6 @@
 package application;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -19,7 +20,7 @@ public class Program {
         
         while (true) {
             try {
-                //UI.clearScreen();
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
                 System.out.println();
                 UI.printBoard(chessMatch.getPieces());
                 System.out.println();
@@ -40,6 +41,10 @@ public class Program {
             catch (InputMismatchException e) {
                 System.out.println(e.getMessage());
                 sc.nextLine();
+            } catch (IOException e) {
+                sc.nextLine();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }   
     }
